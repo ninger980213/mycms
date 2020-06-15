@@ -62,7 +62,7 @@ li {
   color: rgb(59, 50, 104);
   padding: 10px;
   box-sizing: border-box;
-  border: 2px dashed rgb(197, 158, 30);
+  border: 2px dashed rgb(71, 71, 119);
 }
 .bottom p {
   font-size: 12px;

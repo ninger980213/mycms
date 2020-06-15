@@ -1,10 +1,9 @@
 <template>
   <div>
     <!-- 我是上传头像页面 -->
-    <router-link :to="'/PersonalCenter/'">
+    <router-link to='/PersonalCenter'>
       <van-nav-bar title="上传头像！" left-text="返回" left-arrow @click-left="onClickLeft" />
     </router-link>
-
     <van-cell-group title="请上传你的头像！">
       <van-uploader class="nos-1" v-model="fileList" multiple :max-count="1" />
     </van-cell-group>

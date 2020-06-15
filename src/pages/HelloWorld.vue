@@ -3,22 +3,18 @@
 
   <div class="hello">
     <!-- 顶部 -->
-    <div    class="top">
-      <router-link to="/subscription" class="div1"><van-icon  class="div-icon" name="bars" size="30px" tag="span"/></router-link>
-      <div>
+    <div  class="top">
+      <router-link to="/subscription" class="my"><van-icon  class="div-icon" name="bars" size="30px" tag="span"/></router-link>
+      <div class="inputBox">
         <router-link to="/searchpage">
         <van-search v-model="value" shape="round" background="#474777" placeholder="请输入搜索关键词"  class="search">
         </van-search>
         </router-link>
       </div>
-      <!-- <router-link to="/subscription">
-      <van-icon  class="div-icon" name="bars" size="30px" tag="span"/>
-      </router-link> -->
     </div>
     <!-- 轮播图 -->
     <swipe></swipe>
     <!--   内容部分 -->
-
     <jpurnalism></jpurnalism>
   </div>
 </template>
@@ -43,21 +39,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.top {
+  display: flex;
+  background: rgb(71, 71, 119);
+}
+.inputBox {
+      width: 85%;
+}
 .hello{
   padding-bottom: 60px;
 }
-.div1 {
-  float: left;
-  background-color: #474777;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  height: 37px;
-  padding-top: 17px;
-  padding-left: 9px;
-  font-size: 17px;
-  color: #FDF;
-  font-family: "\6977\4F53";
+.my {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  
+}
+.div-icon {
+    margin: 0 auto;
+    color: #cccccc;
 }
 
 

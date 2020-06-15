@@ -2,9 +2,9 @@
   <div>
     <!-- 搜索页 -->
     <form action="/">
-      <div>
-        <span class="div1" @click="onClickLeft" >返回</span>
-        <div>
+      <div class="top">
+        <p class="my" @click="onClickLeft" >返回</p>
+        <div class="inputBox">
           <van-search
             v-model="title"
             shape="round"
@@ -124,30 +124,23 @@ export default {
 };
 </script>
 <style scoped>
-.top {
-  display: flex;
-  background-color: #efeff4;
-}
-.top p {
-  text-align: left;
-}
+
 li {
   list-style: none;
 }
-.div1 {
-  float: left;
-  background-color: #474777;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  height: 37px;
-  padding-top: 17px;
-  padding-left: 9px;
-  font-size: 17px;
-  color: #FDF;
-  font-family: "\6977\4F53";
+.top {
+  display: flex;
+  background: rgb(71, 71, 119);
 }
-.div1 span {
-  padding-top: 20px;
+.inputBox {
+      width: 85%;
+}
+
+.my {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;  
+  color: #cccccc;
+  margin-left: 10px;
 }
 </style>

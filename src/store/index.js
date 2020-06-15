@@ -7,8 +7,9 @@ const store = new Vuex.Store({
     // 定义state
     state: {
         // 个人信息的状态对象
-        userinfo: {
-        },
+        isLogin:false,
+        userinfo: {},
+        loginPromise:null
     },
     // 定义mutation
     mutations: {
@@ -20,6 +21,15 @@ const store = new Vuex.Store({
             state.phonenumber = payload.phonenumber,
             state.sex = payload.sex;
         },
+        changeLogin(state, payload){
+            state.isLogin = payload.isLogin;
+        },
+        changeUserInfo(state, payload){
+            state.userInfo = payload.userInfo;
+        }, 
+        changeloginPromise(state, payload){
+            state.loginPromise = payload.loginPromise;
+        }
     },
     modules: {
         cmsNews

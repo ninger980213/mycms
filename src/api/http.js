@@ -4,7 +4,7 @@ import axios from 'axios'
 // 使用自定义的配置文件发送请求
 const instance = axios.create({
   baseURL: '',
-  timeout: 3000,
+  timeout: 10000,
   headers: {
     'X-Requested-With':'XMLHttpRequest',
     'Content-Type':'application/x-www-form-urlencoded',

@@ -47,6 +47,11 @@ export default {
   data() {
     return {
       isLogin:false,
+      userinfo:{
+      username: "",
+      password: "",
+      sex:''
+      },
       username: "",
       password: "",
       rememberMe: "",
@@ -62,16 +67,21 @@ export default {
       console.log("submit", values);
       // debugger
       login(values).then(res => {
+        // debugger
         console.log(res);
         // 判断登录是否成功
         if (res.code == 0) {
           // 成功跳转到首页
           localStorage.setItem('islogin',true)
           Toast.success('登录成功');
+          this.$store.commit('changeLogin',{isLogin:true});
+          this.$store.commit("userinfo", {user:res.data});
           this.$router.push("/helloworld");
+
         } else if(res.code == 500) {
           // code == 500 提示错误，重新加载该页面
            localStorage.setItem('islogin',false)
+           
           Toast.fail('用户名或密码错误');
           this.$router.push("/login");
         }

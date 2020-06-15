@@ -1,7 +1,7 @@
 <template>
   <!-- 我是查看个人信息的页面 -->
   <div>
-    <router-link :to="'/PersonalCenter/'">
+    <router-link :to="'/PersonalCenter'">
       <van-nav-bar title="个人信息" left-text="返回" left-arrow @click-left="onClickLeft" />
     </router-link>
     <van-image round class="imageTop" :src="user.avatar" />
@@ -34,16 +34,7 @@ export default {
     onClickLeft() {
       Toast("返回");
     },
-    info(values) {
-      console.log(values);
-      // 引入已封装好的
-      debugger;
-      info(this.values).then(res => {
-        console.log(res);
-      });
-    }
   },
-
   // 哪里需要哪里调
   // 计算属性
   computed: {

@@ -5,7 +5,6 @@
       <van-tab  v-for=" item in label"  :key="item.categoryId" :title="item.name">
        <newsdetaillist  :categoryId="item.categoryId"  ></newsdetaillist>
         </van-tab>
-
     </van-tabs>
   </div>
 </template>
@@ -22,9 +21,7 @@ export default {
 
     };
   },
-
-
-  //挂载
+ //挂载
   components: {
     newsdetaillist
   },
@@ -36,16 +33,11 @@ export default {
       Classificationlist(this.pageNum,this.pageSize).then(res => {
         this.label = res.rows;
       console.log(this.label)
-/*
-      console.log(this.label) */
-
       });
     }
   }
 };
 </script>
-
-
 <style scoped>
 
 </style>

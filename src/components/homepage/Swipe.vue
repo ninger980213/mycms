@@ -1,36 +1,35 @@
 <template>
-<!-- 轮播图 -->
+  <!-- 轮播图 -->
   <div>
-  <van-swipe class="my-swipe" :autoplay="5000" indicator-color="white">
-  <van-swipe-item  v-for=" item in swipedata"  :key="item.articleId" >
-  <p class="p1">{{item.title}}</p> 
-    <img class="mui-media-object" :src="item.bannerImgUrl" />
-  </van-swipe-item>
-  
-</van-swipe>
+    <van-swipe class="my-swipe" :autoplay="5000" indicator-color="white">
+      <van-swipe-item v-for=" item in swipedata" :key="item.articleId">
+        <router-link :to="'/newDetails/'+item.articleId">
+          <p class="p1">{{item.title}}</p>
+          <img class="mui-media-object" :src="item.bannerImgUrl" />
+        </router-link>
+      </van-swipe-item>
+    </van-swipe>
   </div>
 </template>
 
 <script>
-  import {Rotationlist} from "../../api/Cms-api"; 
+import { Rotationlist } from "../../api/Cms-api";
 export default {
- 
   data() {
     return {
-     swipedata:[]
+      swipedata: []
     };
   },
- created(){
-       this.Rotation()
+  created() {
+    this.Rotation();
   },
   methods: {
     Rotation() {
       Rotationlist().then(res => {
-     this.swipedata=res.rows
- 
+        this.swipedata = res.rows;
       });
     }
-  } 
+  }
 };
 </script>
 
@@ -43,23 +42,18 @@ export default {
     text-align: center;
     background-color: #39a9ed;
   }  */
-  .p1{
-     text-align: center;
-  }
-.my-swipe{
+.p1 {
+  text-align: center;
+}
+.my-swipe {
   height: 200px;
   width: 100%;
-  
- 
 }
-.my-swipe div{
-  
-font-size: 10px;
-
+.my-swipe div {
+  font-size: 10px;
 }
-.mui-media-object{
+.mui-media-object {
   height: 100%;
   width: 100%;
 }
-
 </style>

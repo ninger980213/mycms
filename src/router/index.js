@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import store from '../store'
+import VueRouter from 'vue-router'
 import HelloWorld from '../pages/HelloWorld'
 import HotSearch from "../pages/HotSearch.vue"
 import PersonalCenter from '../pages/PersonalCenter.vue'
@@ -15,14 +16,15 @@ import MusicMv from '../components/music/MusicMv.vue'
 import Subscription from "../components/homepage/concern/Subscription"
 import Nos from '../pages/Nos.vue'
 import CollectList from '../components/collect/CollectList.vue'
-Vue.use(Router)
+import { Toast } from 'vant'
+Vue.use(VueRouter)
 
-export default new Router({
-  routes: [
+
+ const routes= [
     {path: '/',redirect: '/helloWorld'},
     {path: '/helloworld',component: HelloWorld},
     {path: '/hotsearch',component: HotSearch},
-    {path: '/personalcenter',component: PersonalCenter},
+    {path: '/personalcenter',component: PersonalCenter,meta:{isAuth:true}},
     {path: '/newDetails/:articleId',component: NewDetails},
     {path: '/searchpage',component: SearchPage},
     {path: '/registrat',component: Registrat},
@@ -36,4 +38,22 @@ export default new Router({
     {path: '/nos',component: Nos},
     {path: '/collectList',component: CollectList},
   ]
-})
+  const router = new VueRouter({ 
+    routes
+   })
+
+  router.beforeEach((to, from, next) => {
+    console.log(store)
+    if(to.meta.isAuth){
+      if(store.state.isLogin){
+        next()
+      }else{
+        Toast('请登录！！！！')
+        next('/login')
+      }
+    }else{
+      next()
+    }
+  })
+
+ export default  router

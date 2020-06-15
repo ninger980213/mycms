@@ -26,7 +26,6 @@
 <script>
 import { Toast } from "vant";
 import { info, nos } from "./api/mine";
-
 export default {
   name: "App",
   data() {
@@ -37,13 +36,20 @@ export default {
     };
   },
   // 生命周期函数 调用mutation
+  created() {
+    let loginPromise = info().then(res=>{
+      if(res.code===0){
+        // debugger
+        this.$store.commit('changeLogin',{isLogin:true});
+        this.$store.commit("userinfo", {user: res.data});
+      }else{
+        this.$store.commit('changeLogin',{isLogin:false})
+      }
+    })
+   this.$store.commit('changeloginPromise',{loginPromise:loginPromise})
+  },
   mounted() {
-    setTimeout(() => {
-      // 获取用户数据
-      info().then(res => {
-        this.$store.commit("userinfo", {user:res.data});
-      });
-    }, 1000);
+  
   }
 };
 </script>

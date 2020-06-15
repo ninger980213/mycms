@@ -1,15 +1,10 @@
 <template>
   <div class="img">
-    <div>
-      <span class="div1">热搜</span>
-      <div>
+    <div class="top">
+      <p class="my" >热搜</p>
+      <div class="inputBox">
         <router-link to="/searchpage">
-          <van-search
-            shape="round"
-            background="#474777"
-            placeholder="请输入搜索关键词"
-            class="search"
-          ></van-search>
+          <van-search shape="round" background="#474777" placeholder="请输入搜索关键词" class="search"></van-search>
         </router-link>
       </div>
       <!--  <van-icon name="fire" color="red" />
@@ -77,27 +72,25 @@ export default {
 };
 </script>
 <style lang='less' scoped>
-.div1 {
-  color: #FDF;
-  float: left;
-  background-color: rgb(71, 71, 119);
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  height: 37px;
-  padding-top: 17px;
-  padding-left: 9px;
-  font-size: 14px;
+.top {
+  display: flex;
+  background: rgb(71, 71, 119);
 }
-.div1 span {
-  padding-top: 20px;
+.inputBox {
+      width: 85%;
+}
+.hello{
+  padding-bottom: 60px;
+}
+.my {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;  
+  color: #cccccc;
+  margin-left: 10px;
 }
 .img {
   width: 100%;
-}
-.top {
-  margin: 5px 40%;
-  font-size: 18px;
 }
 p {
   text-align: center;
